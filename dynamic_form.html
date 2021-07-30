@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" rel="stylesheet">
+    <script crossorigin="anonymous"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+          integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+          referrerpolicy="no-referrer" rel="stylesheet"/>
+</head>
+
+<body>
+    <!-- Trigger/Open The Modal -->
+    <div style="background-color:#0F0F8C ;height:45px">
+        <h2 style="color: white">Create Customer</h2>
+    </div>
+    <br>
+    <div style="text-align: center">
+        <button class="btn btn-success" id="myBtn">&emsp;+ Add Customer &emsp;</button>
+    </div>
+    <br>
+
+    <div>
+        <table class="table" id="tasksTable">
+            <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Phone</th>
+                <th scope="col">Address</th>
+                <th scope="col">Desc</th>
+                <th scope="col">Date</th>
+
+            </tr>
+
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+
+    <!-- The Modal -->
+    <div class="modal-dialog modal-xl" id="myModal">
+        <!-- Modal dialog -->
+        <div class="modal-dialog">
+            <!-- Modal content -->
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Add customer</h5>
+                    <button aria-label="Close" class="btn-close close" data-bs-dismiss="modal" type="button"></button>
+                </div>
+
+                <div class="modal-body">
+                    <form>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label class="col-form-label" for="cname">Name:</label>
+                                    <input class="form-control" id="cname" name="name" type="text">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label class="col-form-label" for="cemail">Email:</label>
+                                    <input class="form-control" id="cemail" name="email" type="email">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="col-form-label" for="caddress">Address:</label>
+                            <input class="form-control" id="caddress" name="field_name[]" type="text">
+                            <a class="add_button" href="javascript:void(0);" title="Add field"><i
+                                    class="fas fa-plus-circle"></i></a>
+                        </div>
+                        <div class="mb-3 field_wrapper">
+                        </div>
+                        <div class="mb-3">
+                            <label class="col-form-label" for="cphone">Phone:</label>
+                            <input class="form-control" id="cphone" name="phone" type="text">
+                        </div>
+                        <div class="mb-3">
+                            <label class="col-form-label" for="cdesc">Desc:</label>
+                            <textarea class="form-control" id="cdesc"></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary close" data-bs-dismiss="modal" type="button">Close</button>
+                    <button class="btn btn-primary" onclick="addTasks()" type="submit">Create</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var names = [];
+        var emails = [];
+        var phones = [];
+        var addresses = [];
+        var descs = [];
+
+        // Get the modal
+        var modal = document.getElementById('myModal');
+
+        // Get the button that opens the modal
+        var btn = document.getElementById("myBtn");
+
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
+
+        // When the user clicks the button, open the modal
+        btn.onclick = function () {
+            modal.style.display = "block";
+        }
+
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function () {
+            modal.style.display = "none";
+        }
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+        var rowCount = 1;
+
+        function addTasks() {
+            var temp = 'style .fa fa-trash';
+            names.push(document.getElementById("cname").value);
+            emails.push(document.getElementById("cdesc").value);
+            phones.push(document.getElementById("cphone").value);
+            var table = document.getElementById("tasksTable");
+            var row = table.insertRow(rowCount);
+            var cell1 = row.insertCell(0);
+            var cell2 = row.insertCell(1);
+            var cell3 = row.insertCell(2);
+            var cell4 = row.insertCell(3);
+            var cell5 = row.insertCell(4);
+            var cell6 = row.insertCell(5);
+            var cell7 = row.insertCell(6);
+
+            var input = document.getElementsByName('field_name[]');
+            for (var i = 0; i < input.length; i++) {
+                var a = input[i];
+                addresses.push(a.value);
+                cell5.innerHTML += addresses[rowCount - 1] + ",";
+            }
+            descs.push(document.getElementById("cdesc").value);
+
+
+            cell1.innerHTML = [rowCount];
+            cell2.innerHTML = names[rowCount - 1];
+            cell3.innerHTML = emails[rowCount - 1];
+            cell4.innerHTML = phones[rowCount - 1];
+
+            cell6.innerHTML = descs[rowCount - 1];
+            cell7.innerHTML = getDate();
+            rowCount++;
+            modal.style.display = "none";
+        }
+
+
+        function getDate() {
+            var today = new Date();
+            var dd = today.getDate();
+            var mm = today.getMonth() + 1; //January is 0!
+
+            var yyyy = today.getFullYear();
+
+            if (dd < 10) {
+                dd = '0' + dd;
+            }
+            if (mm < 10) {
+                mm = '0' + mm;
+            }
+            var today = dd + '-' + mm + '-' + yyyy.toString().slice(2);
+            return today;
+        }
+
+        $(document).ready(function () {
+            var maxField = 10; //Input fields increment limitation
+            var addButton = $('.add_button'); //Add button selector
+            var wrapper = $('.field_wrapper'); //Input field wrapper
+            var fieldHTML = '<div><input class="form-control" type="text" name="field_name[]" value=""/><a href="javascript:void(0);" class="remove_button"><i class="fas fa-minus-circle"></i> </a></div>'; //New input field html
+            var x = 1; //Initial field counter is 1
+
+            //Once add button is clicked
+            $(addButton).click(function () {
+                //Check maximum number of input fields
+                if (x < maxField) {
+                    x++; //Increment field counter
+                    $(wrapper).append(fieldHTML); //Add field html
+                }
+            });
+
+            //Once remove button is clicked
+            $(wrapper).on('click', '.remove_button', function (e) {
+                e.preventDefault();
+                $(this).parent('div').remove(); //Remove field html
+                x--; //Decrement field counter
+            });
+        });
+    </script>
+
+</body>
+
+
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Forms</title>
+    <style>
+        div {
+            padding: 5px;
+            margin: 0px auto;
+            text-align: center;
+        }
+
+        h1 {
+            text-align: center;
+            color: blue;
+        }
+    </style>
+
+</head>
+<body>
+    <h1>Forms Demo</h1>
+    <form action="https://www.google.com/search" method="get" name='myform'>
+
+        <div>
+            <label for="name">Name:</label>
+            <input id="name" name="name" placeholder="username"  type="text">
+        </div>
+        <div>
+            <label for="password">Password:</label>
+            <input id="password" name="password" placeholder="password" type="password">
+        </div>
+        <div>
+            <label for="number">Number:</label>
+            <input id="number" name="number" type="number">
+        </div>
+        <div>
+            <label for="search">Google Search:</label>
+            <input id="search" name="q" type="search"><br><br>
+        </div>
+        <div>
+            <label for="color">Color:
+                <input id="color" name="color" type="color">
+            </label>
+
+        </div>
+        <div>
+            <input type="submit">
+            <button type="reset">Reset</button>
+        </div>
+    </form>
+    <form action="https://www.youtube.com/results" method="get">
+        <div>
+            <label for="ysearch">YouTube Search:</label>
+            <input id="ysearch" name="search_query" type="search"><br><br>
+        </div>
+        <div>
+            <input type="submit">
+            <button type="reset">Reset</button>
+        </div>
+    </form>
+
+</body>
+</html>
