@@ -10,7 +10,7 @@
             text-align: center;
         }
 
-        h1 {
+        h1, h3 {
             text-align: center;
             color: blue;
         }
@@ -19,11 +19,12 @@
 </head>
 <body>
     <h1>Forms Demo</h1>
+    <h3>Basic Form</h3>
     <form action="https://www.google.com/search" method="get" name='myform'>
 
         <div>
             <label for="name">Name:</label>
-            <input id="name" name="name" placeholder="username"  type="text">
+            <input id="name" name="name" placeholder="username" type="text">
         </div>
         <div>
             <label for="password">Password:</label>
@@ -31,11 +32,7 @@
         </div>
         <div>
             <label for="number">Number:</label>
-            <input id="number" name="number" type="number">
-        </div>
-        <div>
-            <label for="search">Google Search:</label>
-            <input id="search" name="q" type="search"><br><br>
+            <input id="number" max="100" min="1" name="number" type="number">
         </div>
         <div>
             <label for="color">Color:
@@ -48,7 +45,12 @@
             <button type="reset">Reset</button>
         </div>
     </form>
+    <h3>Searching...</h3>
     <form action="https://www.youtube.com/results" method="get">
+        <div>
+            <label for="search">Google Search:</label>
+            <input id="search" name="q" type="search"><br><br>
+        </div>
         <div>
             <label for="ysearch">YouTube Search:</label>
             <input id="ysearch" name="search_query" type="search"><br><br>
@@ -58,6 +60,44 @@
             <button type="reset">Reset</button>
         </div>
     </form>
+    <h3>Another Form</h3>
+    <form action="" method="get">
+        <div>
+            <label for="cheese">Amount of cheese</label>
+            <input id="cheese" max="50" min="0" name="aoc" type="range">
+            <div>
+                <input checked id="scales" name="scales" type="checkbox">
+                <label for="scales">Scales</label>
+            </div>
+            <div>
+                <input id="inc" name="inc" type="checkbox" value="inch">
+                <label for="inc">Inch</label>
+            </div>
+            <div>
+                <label for="xs">XS</label>
+                <input id="xs" name="size" type="radio" value="xs">
+                <label for="md">M</label>
+                <input id="md" name="size" type="radio" value="m">
+                <label for="l">L</label>
+                <input id="l" name="size" type="radio" value="l">
+            </div>
+            <div>
+                <label for="type">Select entree</label>
+                <select id="type" name="meal_type">
+                    <option value="">Please chose a option</option>
+                    <option selected value="veg">Vegetarian</option>
+                    <option value="fish">Fish</option>
+                    <option value="meat">Meat</option>
+                </select>
+            </div>
+            <label for="request">Any special Request</label>
+            <textarea cols="50" id="request" name="request" placeholder="Type something..." rows="5">
+
+            </textarea>
+            <input type="submit">
+        </div>
+    </form>
+    <!-- assigment -->
 
 </body>
 </html>
