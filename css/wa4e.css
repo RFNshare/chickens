@@ -1,0 +1,38 @@
+/***/
+/*{*/
+/*    border: 1px solid darkred;*/
+/*}*/
+h1 {
+    background-color: #B3B3B3;
+    font-size: 150%;
+    float: left;
+}
+
+header {
+    background-color: #B3B3B3;
+    text-align: center;
+}
+
+nav {
+    text-align: center;
+    font-size: 150%;
+    font-variant: small-caps;
+    background-color: #333333;
+}
+
+h2 {
+    color: #666666;
+    background-color: #00B7ea;
+}
+
+details {
+    font-style: italic;
+}
+
+summary {
+    font-style: normal;
+}
+
+footer {
+    background-color: #333333;
+}
